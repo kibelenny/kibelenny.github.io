@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
       "Architected AWS infrastructure using S3, CloudFront, and Route 53 for frontend production",
       "Engineered GitHub Actions workflows for automated CI/CD push-to-deploy sequences",
       "Containerized development environment using Docker with Nginx reverse proxy configuration",
-      "Mentored two engineering interns to successful full-time Junior Engineer roles",
+      "Mentored engineering interns into successful full-time Junior Engineer roles",
       "Led frontend development of core Fintech portal using Vue 3, Pinia, and Vuetify",
     ],
   },
