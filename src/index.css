@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "tailwindcss";
+
+/* Tailwind v4 theme configuration */
+@theme {
+  /* Color system - Light mode defaults */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(0 0% 0%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 0% 0%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(0 0% 0%);
+  --color-primary: hsl(0 0% 0%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(0 0% 96%);
+  --color-secondary-foreground: hsl(0 0% 0%);
+  --color-muted: hsl(0 0% 96%);
+  --color-muted-foreground: hsl(0 0% 45%);
+  --color-accent: hsl(0 0% 90%);
+  --color-accent-foreground: hsl(0 0% 0%);
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-border: hsl(0 0% 0%);
+  --color-input: hsl(0 0% 0%);
+  --color-ring: hsl(0 0% 0%);
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(0 0% 0%);
+  --color-sidebar-primary: hsl(0 0% 0%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(0 0% 90%);
+  --color-sidebar-accent-foreground: hsl(0 0% 0%);
+  --color-sidebar-border: hsl(0 0% 0%);
+  --color-sidebar-ring: hsl(0 0% 0%);
+  --color-chart-1: hsl(12 76% 61%);
+  --color-chart-2: hsl(173 58% 39%);
+  --color-chart-3: hsl(197 37% 24%);
+  --color-chart-4: hsl(43 74% 66%);
+  --color-chart-5: hsl(27 87% 67%);
+
+  /* Font families */
+  --font-sans:
+    "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  --font-serif:
+    "Lora", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Shadows */
+  --shadow-2xs: 1px 1px 0px 0px #000000;
+  --shadow-xs: 2px 2px 0px 0px #000000;
+  --shadow-sm: 3px 3px 0px 0px #000000;
+  --shadow: 5px 5px 0px 0px #000000;
+  --shadow-md: 8px 8px 0px 0px #000000;
+  --shadow-lg: 12px 12px 0px 0px #000000;
+  --shadow-xl: 16px 16px 0px 0px #000000;
+  --shadow-2xl: 24px 24px 0px 0px #000000;
+
+  /* Border radius */
+  --radius: 0rem;
+
+  /* Custom animations */
+  --animate-slide-up: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up-delay-1: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s
+    forwards;
+  --animate-slide-up-delay-2: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s
+    forwards;
+  --animate-slide-up-delay-3: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s
+    forwards;
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 20s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-glitch: glitch 2s infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  /* Keyframes */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes glitch {
+    0%,
+    100% {
+      transform: translate(0);
+    }
+    10% {
+      transform: translate(-2px, 2px);
+    }
+    20% {
+      transform: translate(2px, -2px);
+    }
+    30% {
+      transform: translate(-2px, -2px);
+    }
+    40% {
+      transform: translate(2px, 2px);
+    }
+    50% {
+      transform: translate(0);
+    }
+  }
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/* Dark mode theme */
+.dark {
+  --color-background: hsl(0 0% 0%);
+  --color-foreground: hsl(0 0% 100%);
+  --color-card: hsl(0 0% 0%);
+  --color-card-foreground: hsl(0 0% 100%);
+  --color-popover: hsl(0 0% 0%);
+  --color-popover-foreground: hsl(0 0% 100%);
+  --color-primary: hsl(0 0% 100%);
+  --color-primary-foreground: hsl(0 0% 0%);
+  --color-secondary: hsl(0 0% 15%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(0 0% 15%);
+  --color-muted-foreground: hsl(0 0% 65%);
+  --color-accent: hsl(0 0% 15%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(0 62% 30%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(0 0% 100%);
+  --color-input: hsl(0 0% 100%);
+  --color-ring: hsl(0 0% 100%);
+  --color-sidebar-background: hsl(240 5.9% 10%);
+  --color-sidebar-foreground: hsl(0 0% 100%);
+  --color-sidebar-primary: hsl(0 0% 100%);
+  --color-sidebar-primary-foreground: hsl(0 0% 0%);
+  --color-sidebar-accent: hsl(0 0% 15%);
+  --color-sidebar-accent-foreground: hsl(0 0% 100%);
+  --color-sidebar-border: hsl(0 0% 100%);
+  --color-sidebar-ring: hsl(0 0% 100%);
+  --color-chart-1: hsl(220 70% 50%);
+  --color-chart-2: hsl(160 60% 45%);
+  --color-chart-3: hsl(30 80% 55%);
+  --color-chart-4: hsl(280 65% 60%);
+  --color-chart-5: hsl(340 75% 55%);
+  --shadow-2xs: 1px 1px 0px 0px #ffffff;
+  --shadow-xs: 2px 2px 0px 0px #ffffff;
+  --shadow-sm: 3px 3px 0px 0px #ffffff;
+  --shadow: 5px 5px 0px 0px #ffffff;
+  --shadow-md: 8px 8px 0px 0px #ffffff;
+  --shadow-lg: 12px 12px 0px 0px #ffffff;
+  --shadow-xl: 16px 16px 0px 0px #ffffff;
+  --shadow-2xl: 24px 24px 0px 0px #ffffff;
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Custom utility classes using @utility directive */
+@utility text-stroke {
+  -webkit-text-stroke: 2px var(--color-foreground);
+  color: transparent;
+}
+
+@utility text-stroke-thin {
+  -webkit-text-stroke: 1px var(--color-foreground);
+  color: transparent;
+}
+
+@utility text-stroke-thin-inverse {
+  -webkit-text-stroke: 2px var(--color-background);
+  color: transparent;
+}
+
+/* Component-like utility classes */
+.hover-brutal {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-brutal:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px var(--color-foreground);
+}

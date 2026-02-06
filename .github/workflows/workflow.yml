@@ -1,0 +1,35 @@
+name: workflow.yml
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'v24.11.1'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+
+      - name: build platform
+        run: npm run build
+
+      - name: deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
