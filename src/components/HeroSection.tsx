@@ -1,5 +1,5 @@
 import { ArrowDown, Mail, MapPin, Phone } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 
 const HeroSection = () => {
   return (
