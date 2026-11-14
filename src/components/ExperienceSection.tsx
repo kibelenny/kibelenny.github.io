@@ -73,6 +73,12 @@ const ExperienceSection = () => {
                     </span>
                   </div>
 
+                  {exp.summary && (
+                    <p className="mb-8 text-lg text-foreground/80 leading-relaxed">
+                      {exp.summary}
+                    </p>
+                  )}
+
                   <ul className="space-y-4">
                     {exp.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex gap-4 text-foreground/80">

@@ -1,6 +1,8 @@
 /**
  * Centralized portfolio data
- * All section data for experience, skills, projects, and education
+ * All section data for experience, skills, projects, systems and education.
+ *
+ * Client names are intentionally anonymized.
  */
 
 import type {
@@ -8,7 +10,20 @@ import type {
   SkillCategory,
   Project,
   Education,
+  Stat,
+  SystemNode,
+  Principle,
 } from "@/types/sections";
+
+/**
+ * Headline numbers shown under the hero
+ */
+export const stats: Stat[] = [
+  { value: "2,100+", label: "Commits shipped at Presta" },
+  { value: "30+", label: "Repositories contributed to" },
+  { value: "4", label: "Languages in production" },
+  { value: "3+", label: "Years on a live lending platform" },
+];
 
 /**
  * Professional experience data
@@ -17,14 +32,21 @@ export const experiences: Experience[] = [
   {
     id: "presta-fe",
     period: "01/2024 – Present",
-    role: "Frontend Engineer",
+    role: "Software Engineer (Full-Stack)",
     company: "Presta Africa",
+    summary:
+      "Full-stack engineer on a multi-tenant lending platform serving insurers, SACCOs and digital lenders across Africa.",
     highlights: [
-      "Architected AWS infrastructure using S3, CloudFront, and Route 53 for frontend production",
-      "Engineered GitHub Actions workflows for automated CI/CD push-to-deploy sequences",
-      "Containerized development environment using Docker with Nginx reverse proxy configuration",
-      "Mentored engineering interns into successful full-time Junior Engineer roles",
-      "Led frontend development of core Fintech portal using Vue 3, Pinia, and Vuetify",
+      "Designed and shipped an end-to-end guarantor workflow across the Spring Boot core, the client-facing middleware and two UIs: automatic credit-bureau checks on consent, bank, card and mobile-money verification, signature capture and an audited evidence trail",
+      "Built OTP-protected, short guarantor signing links and integrated e-signature providers into the loan workflow",
+      "Integrated Smile ID v3 identity verification: callback storage, image upload, UI status polling and retry/reconciliation with the core backend, with credentials in AWS Secrets Manager",
+      "Built an in-app AI agent (FastAPI) that turns a user's plain-language question into navigation inside the admin portal, with provider-agnostic LLM support, rate limiting and session auth",
+      "Delivered sales-hierarchy KPI, PAR and arrears reporting plus large-volume CSV exports (100k+ rows) for loans, payments, SMS and M-Pesa transactions",
+      "Rolled out location-scoped access control across five services and set up canary deployments on Kubernetes (Helm, ingress, ConfigMaps)",
+      "Led a React borrower portal (TanStack Router/Query) with a staged loan workflow, document signing, wallet OTP verification and per-country currency and ID rules",
+      "Long-term owner of the admin portal (900+ commits), the Vue 3 IAM console on Keycloak, and Vue/React origination, savings and reconciliation apps for client deployments",
+      "Architected AWS S3, CloudFront and Route 53 hosting with GitHub Actions push-to-deploy pipelines",
+      "Mentored engineering interns into full-time Junior Engineer roles",
     ],
   },
   {
@@ -56,46 +78,191 @@ export const experiences: Experience[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript", "C++"],
+    skills: ["Java", "TypeScript", "JavaScript", "Python", "SQL", "C++"],
+  },
+  {
+    title: "Backend",
+    skills: [
+      "Spring Boot",
+      "FastAPI",
+      "Django",
+      "Node.js",
+      "REST API design",
+      "MySQL",
+      "PostgreSQL",
+    ],
   },
   {
     title: "Frontend",
     skills: [
-      "Vue.js",
+      "React",
+      "TanStack Router/Query",
       "Vue 3",
       "Pinia",
-      "ReactJS",
-      "jQuery",
-      "Tailwind CSS",
       "Vuetify",
+      "Tailwind CSS",
+      "jQuery",
+      "i18n",
     ],
-  },
-  {
-    title: "Backend & Databases",
-    skills: ["Django", "Node.js", "MySQL", "PostgreSQL", "Supabase", "MongoDB"],
   },
   {
     title: "Cloud & DevOps",
     skills: [
-      "AWS S3",
-      "CloudFront",
-      "Route53",
+      "Kubernetes",
+      "Helm",
       "Docker",
+      "AWS (S3, CloudFront, ECR, Secrets Manager, CloudWatch)",
       "Nginx",
       "GitHub Actions",
-      "CI/CD",
+      "Canary releases",
     ],
   },
   {
-    title: "Tools",
-    skills: ["Git", "Postman", "Google Tag Manager", "Adobe XD", "Figma"],
+    title: "Identity & Fintech",
+    skills: [
+      "Keycloak / OIDC",
+      "KYC (Smile ID)",
+      "Credit bureaus",
+      "E-signatures",
+      "M-Pesa / mobile money",
+      "USSD",
+    ],
+  },
+  {
+    title: "AI & Tools",
+    skills: [
+      "LLM integration",
+      "Claude Code",
+      "Git",
+      "Postman",
+      "Figma",
+      "Google Tag Manager",
+    ],
   },
 ];
 
 /**
- * Featured projects
+ * The platform, as seen from one loan request
+ */
+export const systemNodes: SystemNode[] = [
+  {
+    id: "clients",
+    name: "Client apps",
+    role: "Borrower & guarantor portals, admin portal, IAM console, USSD",
+    stack: "React · Vue 3 · jQuery",
+  },
+  {
+    id: "gateway",
+    name: "Gateway",
+    role: "Routing, auth and canary traffic splitting",
+    stack: "Spring Cloud Gateway · Keycloak",
+  },
+  {
+    id: "las",
+    name: "Loan application service",
+    role: "Client-facing contracts, access checks, OTP and request coordination",
+    stack: "Spring Boot",
+  },
+  {
+    id: "core",
+    name: "Core lending & appraisal",
+    role: "Customers, loans, guarantorship, approvals, reports",
+    stack: "Spring Boot · MySQL",
+  },
+];
+
+export const integrations: string[] = [
+  "Smile ID (KYC)",
+  "Credit bureaus",
+  "E-signature",
+  "M-Pesa / mobile money",
+  "Bank payouts",
+  "SMS",
+  "LLM provider",
+];
+
+/**
+ * Featured projects (anonymized case studies)
  */
 export const projects: Project[] = [
+  {
+    id: "guarantor-workflow",
+    title: "Digital Guarantorship",
+    subtitle: "Presta Africa · Full-stack, 4 services",
+    description:
+      "Moved loan guarantorship from paper and phone calls to a self-service flow where guarantors verify identity, pass a credit check, add a payout account and sign, while staff track every step.",
+    highlights: [
+      "Staged workflow in the core backend with evidence for each stage stored as JSON with an audit trail",
+      "Automatic credit-bureau check on consent, with admin-requested checks and permanent cancellation on failure",
+      "Bank, card and mobile-money account verification against the guarantor's registered name",
+      "OTP-unlocked short signing links delivered by SMS, plus a signature pad on acceptance",
+      "Loans are held at disbursement, not appraisal, until guarantorship completes",
+    ],
+    tags: ["Spring Boot", "MySQL", "React", "jQuery", "OTP", "E-signature"],
+    caseStudy: {
+      problem:
+        "Loans that required guarantors stalled for days. Staff collected consent and account details manually, and there was no reliable record of what each guarantor agreed to.",
+      approach: [
+        "Modelled guarantorship as a staged workflow owned by the core backend, so every client app reads the same state",
+        "Kept business rules in the backend and made the middleware responsible only for access checks and forwarding",
+        "Built the public guarantor pages in the borrower portal and a read-only guarantorship details page for staff",
+        "Wrote the migration that moved evidence to a JSON column, with a blast-radius review before release",
+      ],
+      outcome:
+        "Guarantors complete the whole flow from a link on their phone, and staff see verified evidence for each stage in one place.",
+    },
+  },
+  {
+    id: "presta-ai",
+    title: "In-App AI Agent",
+    subtitle: "Presta Africa · Python service + UI",
+    description:
+      "An assistant inside the admin portal: staff ask a question in plain language and are taken to the right report with the right filters applied.",
+    highlights: [
+      "FastAPI planner that maps questions to pages using a manifest of routes and filters",
+      "Provider-agnostic, OpenAI-compatible LLM client with tightened planning prompts",
+      "Session-based auth against the existing portal and per-user rate limiting",
+    ],
+    tags: ["Python", "FastAPI", "LLMs", "jQuery"],
+    caseStudy: {
+      problem:
+        "The admin portal has hundreds of reports and filters. New staff struggled to find the view that answers a simple question.",
+      approach: [
+        "Kept the model's job small: plan a page and filters from a manifest instead of generating answers",
+        "Validated every plan against the manifest so the agent cannot invent routes",
+        "Reused the portal's session so no new login or permission model was needed",
+      ],
+      outcome:
+        "Staff can type a question such as \"loans in arrears for my team this month\" and land on the filtered listing.",
+    },
+  },
+  {
+    id: "kyc",
+    title: "Identity Verification (KYC)",
+    subtitle: "Presta Africa · Integration service",
+    description:
+      "Smile ID v3 integration that verifies borrowers during onboarding and records the result against the customer in the core system.",
+    highlights: [
+      "Stored every callback and uploaded verification images before processing",
+      "Reported a result to the UI only after the core backend recorded it, with retries and failure details",
+      "Status endpoint for UI polling and credentials kept in AWS Secrets Manager",
+    ],
+    tags: ["Spring Boot", "Smile ID", "AWS Secrets Manager", "Webhooks"],
+  },
+  {
+    id: "borrower-portal",
+    title: "Borrower Self-Service Portal",
+    subtitle: "Presta Africa · For an insurer's lending arm",
+    description:
+      "A React web app where customers register, apply, sign loan documents and track repayments, deployed in more than one country.",
+    highlights: [
+      "Staged loan workflow that follows the backend through appraisal to payout",
+      "Credit check and identity verification after application, with clear consent steps",
+      "Wallet verification by OTP, shared form validation, i18n and per-country currency and ID rules",
+      "Faster first paint by cutting boot-time auth and bundle cost",
+    ],
+    tags: ["React", "TanStack", "Tailwind CSS", "i18next", "Firebase"],
+  },
   {
     id: "edupay",
     title: "EduPay",
@@ -121,6 +288,28 @@ export const projects: Project[] = [
       "Achieved near-zero latency in motor response through optimized hardware programming",
     ],
     tags: ["C++", "Embedded Systems", "IoT", "Gyroscope Sensors"],
+  },
+];
+
+/**
+ * How I work
+ */
+export const principles: Principle[] = [
+  {
+    title: "Own the behavior, not the layer",
+    body: "I follow a feature from the database migration to the button, and keep each rule in the service that owns it.",
+  },
+  {
+    title: "Check the blast radius",
+    body: "Before a change ships I trace who else reads that data or endpoint, and I release risky changes behind tenant flags or a canary.",
+  },
+  {
+    title: "Work with AI agents deliberately",
+    body: "I keep agent guides and service maps in each repository and use Claude Code for cross-repo exploration, reviews and refactors, while reviewing every line.",
+  },
+  {
+    title: "Grow the team",
+    body: "I've mentored interns into full-time engineers and write the docs I wish I'd had on day one.",
   },
 ];
 

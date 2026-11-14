@@ -1,7 +1,11 @@
+import { useState } from "react";
+import { Minus, Plus } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { projects } from "@/data/portfolio";
 
 const ProjectsSection = () => {
+  const [openId, setOpenId] = useState<string | null>(null);
+
   return (
     <section id="projects" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -9,7 +13,7 @@ const ProjectsSection = () => {
         <AnimatedSection animation="fade-up">
           <div className="mb-16">
             <span className="font-mono text-sm tracking-widest text-muted-foreground uppercase">
-              04 — Projects
+              05 — Projects
             </span>
             <h2 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
               FEATURED
@@ -31,7 +35,7 @@ const ProjectsSection = () => {
                 {/* Project Number */}
                 <div className="lg:col-span-2">
                   <span className="text-7xl md:text-9xl font-bold text-muted-foreground/20 group-hover:text-primary/20 transition-colors">
-                    0{idx + 1}
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -60,6 +64,66 @@ const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Case study */}
+                  {project.caseStudy && (
+                    <div className="border-t-2 border-border pt-6">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenId(openId === project.id ? null : project.id)
+                        }
+                        aria-expanded={openId === project.id}
+                        aria-controls={`case-${project.id}`}
+                        className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-wider hover:underline"
+                      >
+                        {openId === project.id ? (
+                          <Minus className="w-4 h-4" />
+                        ) : (
+                          <Plus className="w-4 h-4" />
+                        )}
+                        {openId === project.id
+                          ? "Hide case study"
+                          : "Read case study"}
+                      </button>
+                      {openId === project.id && (
+                        <div
+                          id={`case-${project.id}`}
+                          className="mt-6 grid md:grid-cols-3 gap-6"
+                        >
+                          <div className="p-6 bg-secondary border-2 border-border">
+                            <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                              Problem
+                            </h4>
+                            <p className="mt-3 text-foreground/80 leading-relaxed">
+                              {project.caseStudy.problem}
+                            </p>
+                          </div>
+                          <div className="p-6 bg-secondary border-2 border-border">
+                            <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                              Approach
+                            </h4>
+                            <ul className="mt-3 space-y-2 text-foreground/80 leading-relaxed">
+                              {project.caseStudy.approach.map((step) => (
+                                <li key={step} className="flex gap-2">
+                                  <span className="font-mono text-primary">·</span>
+                                  <span>{step}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="p-6 bg-primary text-primary-foreground border-2 border-primary">
+                            <h4 className="font-mono text-xs uppercase tracking-wider text-primary-foreground/70">
+                              Outcome
+                            </h4>
+                            <p className="mt-3 leading-relaxed">
+                              {project.caseStudy.outcome}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-4">

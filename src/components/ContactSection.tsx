@@ -12,7 +12,7 @@ const ContactSection = () => {
         {/*<AnimatedSection animation="fade-up">*/}
         <div className="mb-16">
           <span className="font-mono text-sm tracking-widest text-primary-foreground/70 uppercase">
-            06 — Contact
+            08 — Contact
           </span>
           <h2 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
             LET'S BUILD

@@ -46,9 +46,9 @@ const HeroSection = () => {
 
         {/* Role Description */}
         <p className="mt-8 max-w-2xl text-lg md:text-xl text-primary-foreground/80 leading-relaxed animate-slide-up-delay-2 font-mono">
-          Results-oriented Software Engineer specializing in scalable Frontend
-          applications using Vue.js and TypeScript, with expertise in Cloud
-          Infrastructure (AWS) and DevOps automation.
+          Full-stack engineer building lending infrastructure for African
+          markets: Spring Boot services, React and Vue portals, and the
+          Kubernetes and AWS setup that ships them.
         </p>
 
         {/* Contact Links */}
@@ -106,10 +106,10 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4 bg-primary-foreground">
         <div className="animate-marquee whitespace-nowrap">
           <span className="text-2xl md:text-4xl font-bold text-primary tracking-wider mx-8">
-            FRONTEND ENGINEER • AWS • VUE.JS • TYPESCRIPT • DEVOPS • REACT •
+            FULL-STACK ENGINEER • SPRING BOOT • REACT • VUE.JS • KUBERNETES • AWS • FASTAPI •
           </span>
           <span className="text-2xl md:text-4xl font-bold text-primary tracking-wider mx-8">
-            FRONTEND ENGINEER • AWS • VUE.JS • TYPESCRIPT • DEVOPS • REACT •
+            FULL-STACK ENGINEER • SPRING BOOT • REACT • VUE.JS • KUBERNETES • AWS • FASTAPI •
           </span>
         </div>
       </div>

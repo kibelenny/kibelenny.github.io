@@ -12,7 +12,7 @@ const SkillsSection = () => {
         <AnimatedSection animation="fade-up">
           <div className="mb-16">
             <span className="font-mono text-sm tracking-widest text-primary-foreground/70 uppercase">
-              03 — Skills
+              04 — Skills
             </span>
             <h2 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
               TECH

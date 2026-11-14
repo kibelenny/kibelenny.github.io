@@ -9,7 +9,7 @@ const EducationSection = () => {
         {/*<AnimatedSection animation="fade-up">*/}
         <div className="mb-16">
           <span className="font-mono text-sm tracking-widest text-muted-foreground uppercase">
-            05 — Education
+            07 — Education
           </span>
           <h2 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
             ACADEMIC
