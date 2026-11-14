@@ -40,7 +40,6 @@ export const experiences: Experience[] = [
       "Designed and shipped an end-to-end guarantor workflow across the Spring Boot core, the client-facing middleware and two UIs: automatic credit-bureau checks on consent, bank, card and mobile-money verification, signature capture and an audited evidence trail",
       "Built OTP-protected, short guarantor signing links and integrated e-signature providers into the loan workflow",
       "Integrated Smile ID v3 identity verification: callback storage, image upload, UI status polling and retry/reconciliation with the core backend, with credentials in AWS Secrets Manager",
-      "Built an in-app AI agent (FastAPI) that turns a user's plain-language question into navigation inside the admin portal, with provider-agnostic LLM support, rate limiting and session auth",
       "Delivered sales-hierarchy KPI, PAR and arrears reporting plus large-volume CSV exports (100k+ rows) for loans, payments, SMS and M-Pesa transactions",
       "Rolled out location-scoped access control across five services and set up canary deployments on Kubernetes (Helm, ingress, ConfigMaps)",
       "Led a React borrower portal (TanStack Router/Query) with a staged loan workflow, document signing, wallet OTP verification and per-country currency and ID rules",
@@ -178,7 +177,6 @@ export const integrations: string[] = [
   "M-Pesa / mobile money",
   "Bank payouts",
   "SMS",
-  "LLM provider",
 ];
 
 /**
@@ -210,30 +208,6 @@ export const projects: Project[] = [
       ],
       outcome:
         "Guarantors complete the whole flow from a link on their phone, and staff see verified evidence for each stage in one place.",
-    },
-  },
-  {
-    id: "presta-ai",
-    title: "In-App AI Agent",
-    subtitle: "Presta Africa · Python service + UI",
-    description:
-      "An assistant inside the admin portal: staff ask a question in plain language and are taken to the right report with the right filters applied.",
-    highlights: [
-      "FastAPI planner that maps questions to pages using a manifest of routes and filters",
-      "Provider-agnostic, OpenAI-compatible LLM client with tightened planning prompts",
-      "Session-based auth against the existing portal and per-user rate limiting",
-    ],
-    tags: ["Python", "FastAPI", "LLMs", "jQuery"],
-    caseStudy: {
-      problem:
-        "The admin portal has hundreds of reports and filters. New staff struggled to find the view that answers a simple question.",
-      approach: [
-        "Kept the model's job small: plan a page and filters from a manifest instead of generating answers",
-        "Validated every plan against the manifest so the agent cannot invent routes",
-        "Reused the portal's session so no new login or permission model was needed",
-      ],
-      outcome:
-        "Staff can type a question such as \"loans in arrears for my team this month\" and land on the filtered listing.",
     },
   },
   {
