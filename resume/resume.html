@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lenny Kibe Wanjohi – Resume</title>
+<meta name="author" content="Lenny Kibe Wanjohi">
+<!-- Source of public/Lenny-Kibe-Resume.pdf. Rebuild with: node resume/build.mjs -->
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 16mm 17mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Crimson Pro", Georgia, serif; font-size: 11pt; line-height: 1.32; color: #111; margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  header h1 { font-size: 25pt; margin: 0; font-weight: 700; display: inline; }
+  header .role { font-size: 16pt; font-style: italic; margin-left: 8px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 3px 22px; margin-top: 6px; font-size: 10.5pt; }
+  h2 { break-after: avoid; font-size: 12pt; margin: 14px 0 6px; padding-bottom: 2px; border-bottom: 1.6px solid #111; }
+  .entry { display: grid; grid-template-columns: 112px 1fr; gap: 0 12px; margin-bottom: 8px; break-inside: avoid; }
+  .when { white-space: nowrap; }
+  .title { font-weight: 700; }
+  .org { font-style: italic; }
+  ul { margin: 2px 0 0; padding-left: 15px; }
+  li { margin: 1px 0; }
+  li b { font-weight: 600; }
+  p { margin: 0; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+  .skills b { display: block; font-weight: 600; }
+  .project { margin-bottom: 7px; break-inside: avoid; }
+  .project .desc { font-style: italic; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lenny Kibe Wanjohi</h1><span class="role">Software Engineer</span>
+  <div class="contact">
+    <span>Nairobi, Kenya · Remote (UTC+3)</span>
+    <a href="mailto:wlenny20@gmail.com">wlenny20@gmail.com</a>
+    <a href="tel:+254729368250">+254 729 368 250</a>
+    <a href="https://kibelenny.github.io">kibelenny.github.io</a>
+    <a href="https://github.com/kibelenny">github.com/kibelenny</a>
+    <a href="https://www.linkedin.com/in/lenny-k-36b8b9141">linkedin.com/in/lenny-k-36b8b9141</a>
+  </div>
+</header>
+
+<h2>Professional Summary</h2>
+<p>Full-stack Software Engineer with a foundation in Electronics and Computer Engineering, building a live, multi-tenant lending platform used across Africa: Spring Boot services, React and Vue portals, and the Kubernetes and AWS setup that ships them. Experienced in integrating KYC, credit bureaus, e-signatures and mobile money, modernizing legacy financial systems, and mentoring junior engineers. Works remotely and asynchronously across time zones.</p>
+
+<h2>Employment Record</h2>
+<div class="entry">
+  <div class="when">01/2024 – Present</div>
+  <div>
+    <div class="title">Software Engineer (Full-Stack)</div>
+    <div class="org">Presta Africa</div>
+    <ul>
+      <li><b>Digital Guarantorship:</b> Designed and delivered an end-to-end guarantor workflow across the Spring Boot core, client-facing middleware and two UIs, covering automatic credit-bureau checks, bank, card and mobile-money verification, OTP-protected signing links and an audited evidence trail.</li>
+      <li><b>Identity Verification:</b> Integrated Smile ID v3 KYC with stored callbacks, UI status polling and retry/reconciliation with the core system, using AWS Secrets Manager.</li>
+      <li><b>Reporting &amp; Data Exports:</b> Delivered sales-hierarchy KPI, PAR and arrears reports, and CSV exports of 100k+ rows for loans, payments, SMS and M-Pesa transactions.</li>
+      <li><b>Kubernetes &amp; Access Control:</b> Rolled out location-scoped access control across five services and configured canary deployments with Helm, ingress and ConfigMaps.</li>
+      <li><b>Frontend Ownership:</b> Owner of the core admin portal (900+ commits) and Vue 3 IAM console; led a React (TanStack) borrower portal with a staged loan workflow, e-signing and multi-country i18n.</li>
+      <li><b>Cloud Infrastructure &amp; CI/CD:</b> Architected AWS S3, CloudFront and Route 53 hosting with GitHub Actions push-to-deploy pipelines and Dockerized local development.</li>
+      <li><b>Technical Leadership &amp; Mentorship:</b> Onboarded and mentored two engineering interns through code reviews and technical sessions; both moved into full-time Junior Engineer roles.</li>
+    </ul>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">01/2023 – 06/2023</div>
+  <div>
+    <div class="title">Frontend Engineering Intern</div>
+    <div class="org">Presta Africa</div>
+    <ul>
+      <li>Built Vue.js and Tailwind CSS components from Figma and Adobe XD designs.</li>
+      <li>Fixed critical bugs and shipped features in the legacy Loan Management System used by field agents.</li>
+      <li>Set up Google Tag Manager tracking to give product managers usage data.</li>
+    </ul>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">01/2022 – 04/2022</div>
+  <div>
+    <div class="title">IT Intern</div>
+    <div class="org">Adrian Kenya</div>
+    <ul><li>Patched, updated and configured software on field laptops via remote access tools.</li></ul>
+  </div>
+</div>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="when">2019 – 2025</div>
+  <div><div class="title">B.Sc. Electronics and Computer Engineering</div><div class="org">Jomo Kenyatta University of Agriculture and Technology (JKUAT)</div></div>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><b>Languages</b>Java, TypeScript, JavaScript, Python, SQL, C++</p>
+  <p><b>Frontend</b>React (TanStack Router/Query), Vue 3 (Pinia, Vue Router), Tailwind CSS, Vuetify</p>
+  <p><b>Backend &amp; Databases</b>Spring Boot, FastAPI, Django, Node.js, PostgreSQL, MySQL, MongoDB</p>
+  <p><b>Cloud &amp; DevOps</b>Kubernetes, Helm, Docker, AWS (S3, CloudFront, Route 53, ECR, Secrets Manager), Nginx, GitHub Actions</p>
+  <p><b>Identity &amp; Fintech</b>Keycloak / OIDC, Smile ID (KYC), credit bureaus, e-signatures, M-Pesa, USSD</p>
+  <p><b>Tools</b>Git, Postman, Claude Code, LLM APIs, Figma</p>
+</div>
+
+<h2>Projects</h2>
+<div class="project">
+  <div class="title">EduPay <span class="org">(SpaceYaTech community project)</span></div>
+  <div class="desc">Payment aggregator letting parents pay school fees to multiple institutions from one dashboard.</div>
+  <ul>
+    <li>Built user-management and school-onboarding APIs with Django and Supabase (PostgreSQL).</li>
+    <li>Integrated Safaricom Daraja (STK Push and C2B) for real-time M-Pesa payments.</li>
+    <li>Worked with a distributed open-source team through GitHub Projects, code reviews and agile planning.</li>
+  </ul>
+</div>
+<div class="project">
+  <div class="title">IoT Assistive Mobility System <span class="org">(capstone)</span></div>
+  <ul><li>Wheelchair controlled by head gestures (gyroscope) or voice, with C++ microcontroller firmware and low-latency wireless control.</li></ul>
+</div>
+
+<h2>References</h2>
+<p>Available on request.</p>
+</body>
+</html>
